@@ -21,9 +21,14 @@ renderer.render(scene, camera);
 
 // Torus
 
-const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+const geometry = new THREE.TorusGeometry(10, 3, 6, 8);
 const material = new THREE.MeshStandardMaterial({ color: 0xff6347 });
 const torus = new THREE.Mesh(geometry, material);
+// const wormTexture = new THREE.TextureLoader().load('tmp3.jpg');
+// const geometry = new THREE.TorusKnotGeometry(10, 1.5, 59, 15,);
+// const material = new THREE.MeshStandardMaterial({ map: wormTexture });
+// const torus = new THREE.Mesh(geometry, material);
+
 
 scene.add(torus);
 
@@ -50,7 +55,7 @@ function addStar() {
 
   const [x, y, z] = Array(3)
     .fill()
-    .map(() => THREE.MathUtils.randFloatSpread(100));
+    .map(() => THREE.MathUtils.randFloatSpread(360));
 
   star.position.set(x, y, z);
   scene.add(star);
@@ -95,21 +100,34 @@ scene.add(benny);
 
 // Moon
 
-const moonTexture = new THREE.TextureLoader().load('moon.jpg');
-const normalTexture = new THREE.TextureLoader().load('normal.jpg');
+const moonTexture = new THREE.TextureLoader().load('tmp.jpg');
+
 
 const moon = new THREE.Mesh(
-  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.TetrahedronGeometry(3, 1),
   new THREE.MeshStandardMaterial({
-    map: moonTexture,
-    normalMap: normalTexture,
+    map: moonTexture
   })
 );
 
 scene.add(moon);
 
+
+const knotTexture = new THREE.TextureLoader().load('tmp3.jpg');
+
+const knot = new THREE.Mesh(
+  new THREE.TorusKnotGeometry( 7, 2, 100, 3 ),
+  new THREE.MeshBasicMaterial( { map: knotTexture } ),
+  
+);
+//scene.add( knot );
+
+
 moon.position.z = 30;
 moon.position.setX(-10);
+
+knot.position.x = 2
+knot.position.z = 40
 
 benny.position.z = -5;
 benny.position.x = 2;
@@ -144,11 +162,15 @@ function animate() {
   torus.rotation.z += 0.01;
 
   benny.rotation.x += 0.01;
-  benny.rotation.y += 0.01;
+  benny.rotation.y += 0.015;
   benny.rotation.z += 0.01;
 
 
   moon.rotation.x += 0.005;
+
+  knot.rotation.x += 0.01;
+  knot.rotation.y += 0.005;
+  knot.rotation.z += 0.01;
 
   // controls.update();
 
@@ -156,3 +178,4 @@ function animate() {
 }
 
 animate();
+

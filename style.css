@@ -80,3 +80,71 @@ canvas {
   .left {
     grid-column: 6 / 12;
   }
+
+  a:link{
+    color:skyblue;
+  }
+  a:visited{
+    color:skyblue;
+  }
+  
+  .social-buttons {
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-buttons button {
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    color: #fff;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all .25s ease;
+}
+
+.social-buttons button:active {
+    transform: scale(.85);
+}
+
+.social-buttons button .bg {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #4135d6;
+    border-radius: 25px;
+    pointer-events: none;
+    box-shadow: 0 0 30px #4135d658;
+}
+
+.social-buttons button i {
+    position: relative;
+    z-index: 10;
+    font-size: 28px;
+    pointer-events: none;
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+
+
+  /* a:hover{
+    color:orange;
+  }
+  a:focus{
+    color:green;
+  }
+  a:active{
+    color:red;
+  } */
