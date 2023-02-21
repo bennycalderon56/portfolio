@@ -1,11 +1,14 @@
 {
   "name": "portfolio-demo",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "gh-pages -d dist"
   },
-  
+  "author": "",
+  "license": "",
   "dependencies": {
     "gh-pages": "^5.0.0"
   }
